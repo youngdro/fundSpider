@@ -1,0 +1,17 @@
+{
+  "name": "fundSpider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "spider.js",
+  "scripts": {
+    "start": "node spider.js"
+  },
+  "author": "youngdro",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "iconv-lite": "^0.4.19",
+    "mongodb": "^3.0.7",
+    "request": "^2.85.0"
+  }
+}
