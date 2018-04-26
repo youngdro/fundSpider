@@ -39,7 +39,7 @@ app.listen(1234,()=>{
 	console.log("service start on port 1234");
 });
 
-// 控制单次并发调用到数量
+// 控制单次并发调用的数量
 class ConcurrentCtrl{
     // 调用者环境，并发分段数量（建议不要超过1000），调用函数，总参数数组，数据库表名
     constructor(parent, splitNum, fn, dataArray=[], collection){
