@@ -39,7 +39,7 @@ app.listen(1234,()=>{
 	console.log("service start on port 1234");
 });
 
-
+// 控制单次并发调用到数量
 class ConcurrentCtrl{
     // 调用者环境，并发分段数量（建议不要超过1000），调用函数，总参数数组，数据库表名
     constructor(parent, splitNum, fn, dataArray=[], collection){
@@ -65,6 +65,7 @@ class ConcurrentCtrl{
     }
 }
 
+// 基金爬虫
 class FundSpider {
     // 数据库名，表名，并发片段数量
     constructor(dbName='fund', collectionName='fundData', fragmentSize=1000){
@@ -257,9 +258,10 @@ class FundSpider {
 
 }
 
-//
-// let fundScraper = new FundSpider("fund2","fundData2",1000);
-// // FundSpider.fundSave();
-// FundSpider.fectchFund("040008",undefined,undefined,30,(err, data)=>{
-//     console.log(data);
-// });
+// 示例
+
+// let fundScraper = new FundSpider("fund","fundData",1000);
+// FundSpider.fundSave();
+
+// let fundScraper = new FundSpider("fund","fundData",1000);
+// FundSpider.fundSave(['000001','040008']);
