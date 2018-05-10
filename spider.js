@@ -8,10 +8,12 @@ const app = express();
 const Event = new events.EventEmitter();
 const dbUrl = "mongodb://localhost:27017/";
 app.get('/', function(req, res){
-  	fectchFund("000001",undefined, undefined, 20, (fundData)=>{
-		res.send(fundData);
-		console.log(fundData);
-	});
+    res.header("Access-Control-Allow-Origin", "*");
+    res.send(`<h3>请访问以下形式的路径获取信息：</h3>
+        <div>/fetchFundCodes</div>
+        <div>/fetchFundInfo/:code</div>
+        <div>/fetchFundData/:code/:per</div></br>
+        <span>建议自建一套前端环境，以上只做服务接口用</span>`);
 });
 app.get('/fetchFundCodes', (req, res)=>{
     let fundSpider = new FundSpider("fundFetch","fundFetchData",1000);
@@ -41,7 +43,7 @@ app.listen(1234,()=>{
 
 // 控制单次并发调用的数量
 class ConcurrentCtrl{
-    // 调用者环境，并发分段数量（建议不要超过1000），调用函数，总参数数组，数据库表名
+    // 调用者上下文环境，并发分段数量（建议不要超过1000），调用函数，总参数数组，数据库表名
     constructor(parent, splitNum, fn, dataArray=[], collection){
         this.parent = parent;
         this.splitNum = splitNum;
@@ -98,10 +100,10 @@ class FundSpider {
                         let tdArray = $(trItem).find("td").map((j, tdItem)=>{
                             return $(tdItem);
                         });
-                        fundItem.date = tdArray[0].text();
-                        fundItem.unitNet = tdArray[1].text();
-                        fundItem.accumulatedNet = tdArray[2].text();
-                        fundItem.changePercent  = tdArray[3].text();
+                        fundItem.date = tdArray[0].text(); // 净值日期
+                        fundItem.unitNet = tdArray[1].text(); // 单位净值
+                        fundItem.accumulatedNet = tdArray[2].text(); // 累计净值
+                        fundItem.changePercent  = tdArray[3].text(); // 日增长率
                         fundData.push(fundItem);
                     });
                     callback(err, fundData);
@@ -260,8 +262,8 @@ class FundSpider {
 
 // 示例
 
-// let fundScraper = new FundSpider("fund","fundData",1000);
-// FundSpider.fundSave();
+// let fundSpider = new FundSpider("fund","fundData",1000);
+// fundSpider.fundSave();
 
-// let fundScraper = new FundSpider("fund","fundData",1000);
-// FundSpider.fundSave(['000001','040008']);
+// let fundSpider = new FundSpider("fund","fundData",1000);
+// fundSpider.fundSave(['000001','040008']);
