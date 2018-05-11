@@ -1,6 +1,6 @@
 {
-  "name": "fundSpider",
-  "version": "1.0.0",
+  "name": "fund_spider",
+  "version": "1.0.1",
   "description": "",
   "main": "spider.js",
   "scripts": {

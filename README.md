@@ -47,9 +47,10 @@ http://fund.eastmoney.com/f10/F10DataApi.aspx?type=lsjz&code=040008&sdate=2015-0
 
 ---
 
-有了所有固定格式的基金数据，不放做个图表呈现出来看看。
+有了所有固定格式的基金数据，不妨做个图表呈现出来看看。
 
-使用[Echart](http://echarts.baidu.com/) 绘制基金的增长率变化折线，模仿蚂蚁财富中可分时段查看基金净值相对变化率的形式，除此之外还可加上该时段数据的线性回归分析，根据回归线及其斜率可直观看出该时段内的基金走势；当然，数学大神还可以加以利用，做高阶的曲线拟合，甚至做数据预测。（实不相瞒，下一步的目标是做成简单的基金预测筛选推荐，保住自己的韭菜苗...）
+使用[Echart](http://echarts.baidu.com/) 绘制基金的增长率变化折线，模仿蚂蚁财富中可分时段查看基金净值相对变化率的形式，除此之外还可加上该时段数据的线性回归分析，根据回归线及其斜率可直观看出该时段内的基金走势；当然，数学大神还可以加以利用，做高阶的曲线拟合，甚至做数据预测。
+
 
 `前端侧获取基金数据后还需做简单处理` 
 
@@ -59,3 +60,7 @@ http://fund.eastmoney.com/f10/F10DataApi.aspx?type=lsjz&code=040008&sdate=2015-0
 ![](https://raw.githubusercontent.com/youngdro/fundSpider/master/img/040008-2.png)
 ![](https://raw.githubusercontent.com/youngdro/fundSpider/master/img/040008-3.png)
 
+
+### TODO
+- [ ] 下一步的目标是做成简单的基金预测筛选推荐，保住自己的韭菜苗...
+- [ ] 
