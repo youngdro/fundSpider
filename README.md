@@ -1,6 +1,8 @@
 # fundSpider
 ### node编写的基金爬虫，可保存基金信息到数据库
 
+具体实现过程可在[这篇文章](https://juejin.im/post/5af01d27f265da0b7f447ab6)查看
+
 启动：
 
 `npm install`
